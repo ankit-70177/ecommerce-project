@@ -1,0 +1,55 @@
+body {
+  font-family: Arial;
+  padding: 20px;
+  background-image: url("image.png");
+  background-size: cover;
+  background-position: center;
+ 
+}
+
+h1 {
+  text-align: center;
+}
+
+#search {
+  display: block;
+  margin: 20px auto;
+  padding: 10px;
+  width: 60%;
+}
+
+#products {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+.card {
+  background: white;
+  padding: 10px;
+  border-radius: 10px;
+  text-align: center;
+  
+  
+}
+
+.card img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+}
+
+ @media (max-width:760px){       /* for tablet */
+    #search{
+        width:80%
+    }}
+
+@media (max-width: 480px) {        /* for mobile */
+  #search {
+    width: 90%;
+  }
+
+    h1{
+        font-size: 20px;
+    }
+        }
