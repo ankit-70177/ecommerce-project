@@ -7,6 +7,14 @@ container.innerHTML = "Loading products...";
 
 function displayProducts(products){
     container.innerHTML = "";
+    if (products.length===0){
+        container.innerHTML=`<div style="text-align:center">
+                                <h1 >Product not found</h1>
+                                <h1 >Please try searching something else...</h1>
+                            </div>`
+        return 
+        
+    }else{
 
     products.forEach(function(item){
         container.innerHTML += `
@@ -16,7 +24,7 @@ function displayProducts(products){
                 <p>Price: ₹${item.price}</p>
             </div>
         `;
-    });
+    });}
 }
 
 // Fetch
