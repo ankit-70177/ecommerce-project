@@ -46,3 +46,23 @@ searchInput.addEventListener("input", function(){
 
     displayProducts(filtered);
 });
+
+let sortSelect=document.getElementById("sort")
+
+
+sortSelect.addEventListener("change",function(){
+    let sorted=[...allProducts]
+    if (sortSelect.value==="low"){
+        sorted.sort(function(a,b){
+            return a.price-b.price
+        })
+    }else if (sortSelect.value==="high"){
+        sorted.sort(function(a,b){
+            return b.price-a.price
+        })
+
+    }
+    displayProducts(sorted)
+
+
+})
