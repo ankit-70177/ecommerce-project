@@ -31,7 +31,8 @@ function displayProducts(products){
 fetch(url)
 .then(data=>data.json())
 .then((obj)=>{
-    allProducts = obj.products;       
+    allProducts = obj.products;   
+    // console.log(allProducts.map(item => item.category));    
     displayProducts(allProducts);     
 });
 
@@ -65,4 +66,37 @@ sortSelect.addEventListener("change",function(){
     displayProducts(sorted)
 
 
+})
+
+
+
+let filterSelect = document.getElementById("filter");
+
+filterSelect.addEventListener("change", function(){
+
+    let value = filterSelect.value;
+
+    if (value === ""){
+        displayProducts(allProducts);
+        return;
+    }
+
+    let filtered = allProducts.filter(function(item){
+        return item.category === value;
+    });
+
+    displayProducts(filtered);
+});
+
+let dark_light_btn=document.getElementById("dark_light_mode")
+
+
+
+dark_light_btn.addEventListener("click",function(){
+    document.body.classList.toggle("dark");     //if class is not dark on body then add else remove that class
+    if (dark_light_btn.innerText=="🌙 Dark mode"){
+        dark_light_btn.innerHTML="☀️ Light mode"
+    }else{
+        dark_light_btn.innerHTML="🌙 Dark mode"
+    }
 })

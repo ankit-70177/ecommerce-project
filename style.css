@@ -53,3 +53,22 @@ h1 {
         font-size: 20px;
     }
         }
+
+.dark {
+  background-color: #121212;
+  color: white;
+}
+
+.dark .card {
+  background-color: #1e1e1e;
+  color: white;
+}
+#dark_light_mode {
+  display: block;
+  margin-left: auto;
+  margin-right: 20px;
+}
+
+.dark h1 {
+  color: black; /* I do this because when clicking dark mode button My Store color also changes */
+}

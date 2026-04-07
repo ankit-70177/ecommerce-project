@@ -8,11 +8,21 @@
 </head>
 <body>
     <h1>My Store</h1>
+    <button id="dark_light_mode" >🌙 Dark mode</button>
     <input id="search" type="text" placeholder="search products">
     <select id="sort">
         <option value="" disabled selected>Sort by Price</option>
         <option value="low">Low to High</option>
         <option value="high">High to Low</option>
+    </select>
+
+    <select id="filter">
+        <option value="" disabled selected>All Categories</option>
+        <option value="furniture">Furniture</option>
+        <option value="beauty">Beauty</option>
+        <option value="laptops">Laptops</option>
+        <option value="fragrances">Fargrances</option>
+        <option value="groceries">Groceries</option>
     </select>
     <div id="products">Loading...</div>
     <script  src="script.js"></script>
