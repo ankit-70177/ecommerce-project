@@ -1,20 +1,22 @@
 let allProducts = [];
 
-let url="https://dummyjson.com/products";
-let container=document.getElementById("products");
+let url = "https://dummyjson.com/products";
+let container = document.getElementById("products");
 
 container.innerHTML = "Loading products...";
 
 function displayProducts(products){
     container.innerHTML = "";
-    if (products.length===0){
-        container.innerHTML=`<div style="text-align:center">
-                                <h1 >Product not found</h1>
-                                <h1 >Please try searching something else...</h1>
-                            </div>`
-        return 
-        
-    }else{
+
+    if (products.length === 0){
+        container.innerHTML = `
+            <div style="text-align:center">
+                <h1>Product not found</h1>
+                <h1>Please try searching something else...</h1>
+            </div>
+        `;
+        return;
+    }
 
     products.forEach(function(item){
         container.innerHTML += `
@@ -24,18 +26,21 @@ function displayProducts(products){
                 <p>Price: ₹${item.price}</p>
             </div>
         `;
-    });}
+    });
 }
 
 // Fetch
 fetch(url)
-.then(data=>data.json())
-.then((obj)=>{
-    allProducts = obj.products;   
-    // console.log(allProducts.map(item => item.category));    
-    displayProducts(allProducts);     
+.then(data => data.json())
+.then((obj) => {
+    allProducts = obj.products;
+    displayProducts(allProducts);
+})
+.catch(() => {
+    container.innerHTML = "<h2>Something went wrong!</h2>";
 });
 
+// Search
 let searchInput = document.getElementById("search");
 
 searchInput.addEventListener("input", function(){
@@ -48,32 +53,25 @@ searchInput.addEventListener("input", function(){
     displayProducts(filtered);
 });
 
-let sortSelect=document.getElementById("sort")
+// Sort
+let sortSelect = document.getElementById("sort");
 
+sortSelect.addEventListener("change", function(){
+    let sorted = [...allProducts];
 
-sortSelect.addEventListener("change",function(){
-    let sorted=[...allProducts]
-    if (sortSelect.value==="low"){
-        sorted.sort(function(a,b){
-            return a.price-b.price
-        })
-    }else if (sortSelect.value==="high"){
-        sorted.sort(function(a,b){
-            return b.price-a.price
-        })
-
+    if (sortSelect.value === "low"){
+        sorted.sort((a,b) => a.price - b.price);
+    } else if (sortSelect.value === "high"){
+        sorted.sort((a,b) => b.price - a.price);
     }
-    displayProducts(sorted)
 
+    displayProducts(sorted);
+});
 
-})
-
-
-
+// Filter
 let filterSelect = document.getElementById("filter");
 
 filterSelect.addEventListener("change", function(){
-
     let value = filterSelect.value;
 
     if (value === ""){
@@ -88,15 +86,15 @@ filterSelect.addEventListener("change", function(){
     displayProducts(filtered);
 });
 
-let dark_light_btn=document.getElementById("dark_light_mode")
+// Dark Mode
+let dark_light_btn = document.getElementById("dark_light_mode");
 
+dark_light_btn.addEventListener("click", function(){
+    document.body.classList.toggle("dark");
 
-
-dark_light_btn.addEventListener("click",function(){
-    document.body.classList.toggle("dark");     //if class is not dark on body then add else remove that class
-    if (dark_light_btn.innerText=="🌙 Dark mode"){
-        dark_light_btn.innerHTML="☀️ Light mode"
-    }else{
-        dark_light_btn.innerHTML="🌙 Dark mode"
+    if (dark_light_btn.innerText === "🌙 Dark mode"){
+        dark_light_btn.innerHTML = "☀️ Light mode";
+    } else {
+        dark_light_btn.innerHTML = "🌙 Dark mode";
     }
-})
+});

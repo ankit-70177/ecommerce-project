@@ -1,14 +1,27 @@
-E-Commerce Web App
+# 🛒 E-Commerce Web App
 
-About : I made this simple online store to practice basic JavaScript and getting data from the web. It loads real products to make a working shop where you can easily look around, search, and sort items.
+## 📌 About
+I built this simple online store to practice JavaScript and API integration. It fetches real product data and allows users to browse, search, and sort items dynamically.
 
-Features :-
-    Browse: View a live feed of products.
+## 🌐 Live Demo
+https://ankit-70177.github.io/ecommerce-project/
 
-    Search: Find items instantly by name.
+## 🚀 Features
+- Browse: View products from API
+- Search: Find items instantly by name
+- Filter: Filter products by category
+- Sort: Sort products by price (low to high / high to low)
+- Dark/Light Mode
+- Responsive design
 
-    Filter & Sort: Organize the products by price to find exactly what you need.
+## 🛠 Built With
+- HTML
+- CSS
+- JavaScript
+- DummyJSON API (https://dummyjson.com/products)
 
-Built With :-
-    - HTML, CSS, & JavaScript
-    - [DummyJSON API](https://dummyjson.com/products) (for the product data)
+## ▶️ How to Run
+1. Clone or download the repository
+2. Open the folder
+3. Open `index.html` in browser
+4. Make sure internet is connected
